@@ -1,3 +1,22 @@
+CREATE TABLE `shard_config` (
+  `ShardID` int NOT NULL AUTO_INCREMENT,
+  `TenantID` char(36) DEFAULT NULL,
+  `AppCode` varchar(20) DEFAULT NULL,
+  `Server` varchar(50) DEFAULT NULL,
+  `Port` int DEFAULT NULL COMMENT 'Cổng',
+  `Database` varchar(50) DEFAULT NULL,
+  `UserID` varchar(50) DEFAULT NULL,
+  `Password` varchar(50) DEFAULT NULL,
+  `VersionDB` varchar(255) DEFAULT NULL COMMENT 'Phiên bản db hiện tại',
+  `Env` char(20) DEFAULT 'g2' COMMENT 'Môi trường hiện tại của dữ liệu',
+  `Status` int NOT NULL DEFAULT '0' COMMENT 'Trạng thái dữ liệu 0: làm việc, 1- không làm việc',
+  `CreatedDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`ShardID`),
+  KEY `FK_shard_config_application_ApplicationCode` (`AppCode`),
+  KEY `FK_shard_config_tenant_TenantID` (`TenantID`),
+  CONSTRAINT `FK_shard_config_tenant_TenantID` FOREIGN KEY (`TenantID`) REFERENCES `tenant` (`TenantID`)
+) ENGINE=InnoDB AUTO_INCREMENT=177471;
+
 CREATE TABLE `sys_msc_user` (
   `UserID` char(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci NOT NULL COMMENT 'Khóa chính bảng quản lý người dùng, khóa này là trườn user_id bên amis',
   `Inactive` tinyint NOT NULL DEFAULT '0' COMMENT 'Trạng thái hoạt động người dùng true: ngừng hoạt động, false: hoạt động bt',
