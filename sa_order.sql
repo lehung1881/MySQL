@@ -23,7 +23,7 @@ CREATE TABLE sa_order (
     ChangeAmount        DECIMAL(24,10)  NOT NULL DEFAULT 0 COMMENT 'Tiền thối lại cho khách = PaidAmount - TotalAmount',
 
     PaymentMethod       TINYINT         NOT NULL COMMENT 'Hình thức thanh toán: 1=Tiền mặt, 2=Thẻ, 3=Chuyển khoản, 4=Ví điện tử, 5=Kết hợp',
-    Status              TINYINT         NOT NULL COMMENT 'Trạng thái đơn: 1=Nháp (Draft), 2=Chờ thanh toán (Pending), 3=Hoàn thành (Completed), 4=Đã hủy (Cancelled), 5=Trả hàng (Returned)',
+    OrderStatus         TINYINT         NOT NULL COMMENT 'Trạng thái đơn: 1=Nháp (Draft), 2=Chờ thanh toán (Pending), 3=Hoàn thành (Completed), 4=Đã hủy (Cancelled), 5=Trả hàng (Returned)',
 
     Description         VARCHAR(500)    NULL COMMENT 'Ghi chú đơn hàng',
 
@@ -37,7 +37,7 @@ CREATE TABLE sa_order (
     KEY IDX_sa_order_RefDate    (RefDate),
     KEY IDX_sa_order_CustomerID (CustomerID),
     KEY IDX_sa_order_StockID    (StockID),
-    KEY IDX_sa_order_Status     (Status)
+    KEY IDX_sa_order_OrderStatus(OrderStatus)
 )
 COMMENT = 'Đơn hàng bán - Master';
 
