@@ -24,6 +24,8 @@ CREATE TABLE sa_order (
     ChangeAmount        DECIMAL(24,10)  NOT NULL DEFAULT 0 COMMENT 'Tiền thối lại cho khách = PaidAmount - TotalAmount',
 
     PaymentMethod       TINYINT         NOT NULL COMMENT 'Hình thức thanh toán: 1=Tiền mặt, 2=Thẻ, 3=Chuyển khoản, 4=Ví điện tử, 5=Kết hợp',
+    PaymentStatus       TINYINT         NOT NULL DEFAULT 1 COMMENT 'Trạng thái thanh toán: 1=Chưa thanh toán (Unpaid), 2=Thanh toán một phần (Partial), 3=Đã thanh toán (Paid), 4=Hoàn tiền một phần (PartialRefund), 5=Đã hoàn tiền (Refunded)',
+    
     OrderStatus         TINYINT         NOT NULL COMMENT 'Trạng thái đơn: 1=Nháp (Draft), 2=Chờ thanh toán (Pending), 3=Hoàn thành (Completed), 4=Đã hủy (Cancelled), 5=Trả hàng (Returned)',
 
     Description         VARCHAR(500)    NULL COMMENT 'Ghi chú đơn hàng',
