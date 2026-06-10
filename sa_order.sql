@@ -3,6 +3,7 @@
 -- ============================================
 CREATE TABLE sa_order (
     RefID               CHAR(36)        NOT NULL COMMENT 'Khóa chính - ID đơn hàng (UUID)',
+    RefNo               VARCHAR(100)    NOT NULL COMMENT 'Số đơn hàng',
     RefDate             DATETIME        NOT NULL COMMENT 'Ngày lập đơn hàng',
 
     CustomerID          CHAR(36)        NULL COMMENT 'ID khách hàng (NULL nếu là khách lẻ)',
