@@ -29,15 +29,11 @@ COMMENT = 'Bảng quản lý người dùng';
 CREATE TABLE sys_msc_role (
     RoleID          CHAR(36)        NOT NULL COMMENT 'Khóa chính của bảng',
 
-    IsSystem        TINYINT         NOT NULL COMMENT 'Có phải vai trò hệ thống không. 1: Hệ thống, 0: Tự tạo',
-
     RoleCode        VARCHAR(50)     NULL COMMENT 'Mã vai trò',
     RoleName        VARCHAR(255)    NULL COMMENT 'Tên vai trò',
     Description     VARCHAR(255)    NULL COMMENT 'Diễn giải vai trò',
 
     SystemCode      VARCHAR(50)     NULL COMMENT 'Mã hệ thống',
-
-    Inactive        TINYINT         NULL DEFAULT 0 COMMENT 'Trạng thái vai trò. 1: Ngừng sử dụng, 0: Đang sử dụng',
 
     CreatedBy       VARCHAR(255)    NULL COMMENT 'Người tạo',
     CreatedDate     DATETIME        NULL COMMENT 'Ngày tạo',
